@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+#grid-container{
+ --gap: 2em;
+ --line-thickness: 1px;
+ --line-color: black;
+ --line-offset: calc(var(--gap) / 2)
+
+
+ /* display:grid; */
+ align-items: stretch;
+ gap: var(--gap);
+ overflow: hidden;
+}
+
+#grid-container > .section-container{
+ position: relative;
+}
+#grid-container > .section-container::before,
+#grid-container > .section-container::after{
+ content: '';
+ background-color: var(--line-color);
+ position: absolute;
+}
+
+/* row lines */
+#grid-container > .section-container::after{
+ width: 100vw;
+ height: var(--line-thickness);
+ top: -1em;
+ left: 0;
+}
+
+#grid-container > .section-container::before{
+ width: var(--line-thickness);
+ height: 100vh;
+ top: 0;
+ left: -1em;
+}
+
+
+
+#expand-footer{
+ position: absolute;
+ top: -13px;
+ left: calc(100% - var(--gap) + 1em);
+}
+
+/* sidebar navigation */
+/* menu styling */
+.sidepanel {
+  position: fixed;
+  height: 100%; /* Full height */
+  width: 0; /* Start off hidden */
+  top: 0;
+  z-index: 1; /* to position the side panel on top of everything else*/
+  right: 0; /* Position off-screen to the right */
+  background-color: #111111cd; /* Black background color */
+  backdrop-filter: blur(3px); /* background blur*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* Smooth transition */
+  padding-top: 60px; /* Padding at the top */
+  color: white;
+ }
+ 
+ .overlay-content {
+  position: relative;
+  top: 10%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+ }
+ 
+ .sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+ }
+ 
+ .sidepanel a:hover {
+  color: #f1f1f1;
+ }
+ 
+ .sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 60px;
+ }
+ 
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+ .overlay a {font-size: 20px}
+ .overlay .closebtn {
+   font-size: 40px;
+   top: 15px;
+   right: 35px;
+ }
+}
+
+
+/* main content section */
+
+/* scrollbar */
+.main-content::-webkit-scrollbar {
+  height: 6px; 
+  width: 2px;
+  position: absolute;
+  left: 100px;
+  top: 0px;
+}
+
+/* The track (background) */
+.main-content::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.383);
+}
+
+/* The thumb (scroll button) */
+.main-content::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+
+.main-content::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 10px; 
+}
+
+.main-content::-webkit-scrollbar-button  {
+  background:transparent;
+  width: 10px;
+}
+
+/* module stylings */
+
+#modal-wrapper {
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh; /* Black background color */
+  background-color: #1111113e; /* Black background color */
+  backdrop-filter: blur(4px); /* background blur*/
+  -webkit-overflow-scrolling: touch;
+  display: grid;
+  place-items: center;
+  /* color: #f1eeee; */
+ }
+ 
+ #module{
+  width: calc(100vw - 20vh);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: proximity;
+  text-align: center;
+ }
+
+
+/* styling fo the portfolio page */
+
+#bentoGrid .gridSeection{
+  display: grid;
+  place-content: center;
+}
